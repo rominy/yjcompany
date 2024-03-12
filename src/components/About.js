@@ -66,12 +66,10 @@ function About(props) {
   }, [title])
 
 
-  const handleTabClick = (e) => {
-    const value = e.target.textContent;
-
-    dispatch(getCurrentPageTitle(value));
-    setIsActive(value);
-    navigate(`${pageURL[value]}`);
+  const handleTabClick = (e, page) => {
+    dispatch(getCurrentPageTitle(page));
+    setIsActive(page);
+    navigate(`${pageURL[page]}`);
   };
 
   return (
@@ -81,10 +79,10 @@ function About(props) {
       <div className='inner'>
         <ul className='category'>
           {/* 수정* active 했을때 색상 변경 다른 방법 알아보기 혹은 map으로 */}
-          <li className={isActive === '회사소개' ? 'active' : ''} onClick={handleTabClick}>회사소개</li>
-          <li className={isActive === '멤버' ? 'active' : ''} onClick={handleTabClick}>멤버</li>
-          <li className={isActive === '사업현황' ? 'active' : ''} onClick={handleTabClick}>사업현황</li>
-          <li className={isActive === '오시는길' ? 'active' : ''} onClick={handleTabClick}>오시는길</li>
+          <li className={isActive === '회사소개' ? 'active' : ''} onClick={(e) => handleTabClick(e, '회사소개')}>회사소개</li>
+          <li className={isActive === '멤버' ? 'active' : ''} onClick={(e) => handleTabClick(e, '멤버')}>멤버</li>
+          <li className={isActive === '사업현황' ? 'active' : ''} onClick={(e) => handleTabClick(e, '사업현황')}>사업현황</li>
+          <li className={isActive === '오시는길' ? 'active' : ''} onClick={(e) => handleTabClick(e, '오시는길')}>오시는길</li>
         </ul>
       </div>
       <Outlet />

@@ -6,7 +6,7 @@ const initialState = {
     '멤버': '/about/member',
     '사업현황': '/about/business',
     '오시는길': '/about/location',
-
+    
     '고객지원': '/contact',
   },
   currentPageTitle: '',

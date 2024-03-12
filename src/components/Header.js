@@ -160,17 +160,16 @@ function Header(props) {
     window.scrollTo({top: 0, behavior:'instant'});
   }
 
-  const handlePageMove = (e) => {
-    const value = e.target.textContent;
+  const handlePageMove = (e, page) => {
 
-    if (pathname === pageURL[value]) {
+    if (pathname === pageURL[page]) {
       return window.scrollTo({top: 0, behavior:'instant'});
     }
     
-    dispatch(getCurrentPageTitle(value));
+    dispatch(getCurrentPageTitle(page));
     setIsHoverd(false);
     setTransition(false);
-    navigate(`${pageURL[value]}`);
+    navigate(`${pageURL[page]}`);
   }
 
   return (
@@ -182,29 +181,29 @@ function Header(props) {
             <li> 
               <ul>
                 <li className='menu'>
-                  <span onMouseOver={handleHover} onClick={handlePageMove}>회사소개</span>
+                  <span onMouseOver={handleHover} onClick={(e) => handlePageMove(e, '회사소개')}>회사소개</span>
                   <ul className='sub-menu'>
-                    <li><span onClick={handlePageMove}>멤버</span></li>  
-                    <li><span onClick={handlePageMove}>사업현황</span></li>  
-                    <li><span onClick={handlePageMove}>오시는길</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '멤버')}>멤버</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '사업현황')}>사업현황</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '오시는길')}>오시는길</span></li>  
                   </ul>
                 </li>
                 <li className='menu'>
-                  <span onMouseOver={handleHover} onClick={handlePageMove}>일정</span>
+                  <span onMouseOver={handleHover} onClick={(e) => handlePageMove(e, '일정')}>일정</span>
                   <ul className='sub-menu'>
-                    <li><span onClick={handlePageMove}>생일</span></li>  
-                    <li><span onClick={handlePageMove}>행사</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '생일')}>생일</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '행사')}>행사</span></li>  
                   </ul>
                 </li>
                 <li className='menu'>
-                  <span onMouseOver={handleHover} onClick={handlePageMove}>앨범</span>
+                  <span onMouseOver={handleHover} onClick={(e) => handlePageMove(e, '앨범')}>앨범</span>
                   <ul className='sub-menu'>
-                    <li><span onClick={handlePageMove}>모임</span></li>  
-                    <li><span onClick={handlePageMove}>여행</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '모임')}>모임</span></li>  
+                    <li><span onClick={(e) => handlePageMove(e, '여행')}>여행</span></li>  
                   </ul>
                 </li>
                 <li className='menu'>
-                  <span onMouseOver={handleHover} onClick={handlePageMove}>고객지원</span>
+                  <span onMouseOver={handleHover} onClick={(e) => handlePageMove(e, '고객지원')}>고객지원</span>
                 </li>
               </ul>
             </li>
