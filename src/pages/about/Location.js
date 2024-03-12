@@ -16,7 +16,7 @@ function Location(props) {
       try {
         // const lol = [];
         // lol.push(axios.get(''))
-        const lol = await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/%EC%98%81%EC%A2%85%20%EB%B0%B1%ED%98%B8/KR2?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`);
+        const lol = await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/3oLJ2Ul-AvdR3dpIPcSKjwx0lPqRkx-Ox6WuO0SgEpIlRPue?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`);
 
         console.log(lol);
       } catch (err) {
