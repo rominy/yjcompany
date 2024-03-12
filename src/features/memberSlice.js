@@ -54,7 +54,8 @@ const initialState = {
       name: '이상명',
       enName: 'Lee Sang-myeong',
       profileImg: sangmyeong,
-      puuid: 'COg4D8LLU7zCfD3PIyRbXzW9ByhmBo054L8p5bWqyeZOGx3QDqIJXDcAZKVa5yoLQ65zy2cBNLf9sw'
+      puuid: 'COg4D8LLU7zCfD3PIyRbXzW9ByhmBo054L8p5bWqyeZOGx3QDqIJXDcAZKVa5yoLQ65zy2cBNLf9sw',
+      summonerId : '3oLJ2Ul-AvdR3dpIPcSKjwx0lPqRkx-Ox6WuO0SgEpIlRPue',
     },
     {
       name: '이재성',
