@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import MenuBanner from '../components/MenuBanner';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ const AboutContainer = styled.section`
 
   .inner {
     max-width: 1200px;
-    margin: 40px auto 80px auto;
+    margin: 60px auto 80px auto;
 
     .category {
       display: flex;
@@ -27,6 +27,8 @@ const AboutContainer = styled.section`
         padding: 10px 34px;
         border: 1px solid #ccc;
         border-right: 0;
+        font-size: 15px;
+        font-weight: 500;
 
         /* 설명* 액티브된 버튼 제외 나머지 버튼에 대한 hover 이벤트 처리,
         class명이 active를 가지고 있는 엘리먼트를 제외한 나머지 요소에 대한 hover */
@@ -54,8 +56,14 @@ function About(props) {
 
   // 설명* 새로고침 시 초기화 방지
   const extractedKey = Object.keys(pageURL).find(key => pageURL[key] === pathname);
-
-  const [isActive, setIsActive] = useState(title || extractedKey);
+  
+  const [isActive, setIsActive] = useState('');
+  
+  // 설명* 헤더 메뉴 클릭 시 title값이 반영되지 않아 카테고리탭 active class가 추가되지 않음 
+  // title 값이 바뀔때마다 isActive 상태를 변환
+  useEffect(() => {
+    setIsActive(title || extractedKey);
+  }, [title])
 
 
   const handleTabClick = (e) => {
@@ -65,8 +73,6 @@ function About(props) {
     setIsActive(value);
     navigate(`${pageURL[value]}`);
   };
-
-  console.log(isActive, extractedKey);
 
   return (
     <>

@@ -10,6 +10,7 @@ import About from './components/About';
 import Business from './pages/about/Business';
 import Location from './pages/about/Location';
 import NotFound from './common/NotFound';
+import Contact from './pages/Contact';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -38,6 +39,7 @@ function App() {
               <Route path='/about/business' element={<Business />} />
               <Route path='/about/location' element={<Location />} />
             </Route>
+            <Route path='/contact' element={<Contact />} />
           </Route>
           <Route path="*" element={<NotFound />} />
       </Routes>
