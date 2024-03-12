@@ -55,7 +55,7 @@ const HeaderContainer = styled.header`
 
         #logo {
           cursor: pointer;
-          max-width: 120px;
+          width: 120px;
           height: 36px;
         }
 
