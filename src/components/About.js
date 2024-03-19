@@ -75,7 +75,7 @@ function About(props) {
   return (
     <>
     <AboutContainer>
-      <MenuBanner imgURL={about} title={isActive} />
+      <MenuBanner imgURL='https://raw.githubusercontent.com/rominy/yjcompany/main/src/assets/images/aboutimg.jpg' title={isActive} />
       <div className='inner'>
         <ul className='category'>
           {/* 수정* active 했을때 색상 변경 다른 방법 알아보기 혹은 map으로 */}

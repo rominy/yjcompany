@@ -7,7 +7,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const MainContainer = styled.section`
   height: 100vh;
   /* background-image: url(${mainImg}); */
-  background-image: url('https://raw.githubusercontent.com/rominy/yjcompany/main/src/assets/images/aboutimg.jpg');
+  background-image: url('https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/mainimg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   display: flex;

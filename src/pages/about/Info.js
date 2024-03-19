@@ -91,7 +91,7 @@ function Info(props) {
         <div className='img-box'>
           <motion.img
             id='whiteTiger'  
-            src={whiteTiger}
+            src='https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/whitetiger.png'
             alt='whiteTiger'
             initial={{ y: 30 }} 
             animate={{ y: -100, rotate: '1turn' }}
@@ -99,7 +99,7 @@ function Info(props) {
           />
           <motion.img 
             id='trampoline' 
-            src={trampoline} 
+            src='https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/trampoline.png'
             alt='trampoline' 
             initial={{ height: 42 }} 
             animate={{ height: 50 }}
