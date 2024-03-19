@@ -92,49 +92,56 @@ const initialState = {
     {
       name: '이상명 오철운', 
       company: '노무중기',
-      companyImg: excavator,
+      // companyImg: excavator,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/excavator.jpg?token=GHSAT0AAAAAACPOMGB7DI3PKMOZXSGDSBCIZPZNLRA',
       type: '건설업',
       btnId: 'nomu-btn'
     },
     {
       name: '박찬욱 차순익', 
       company: '린나이보일러',
-      companyImg: boiler,
+      // companyImg: boiler,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/9c215249982a68e3da083094d7f5e0a658f01545/boiler.jpg?token=GHSAT0AAAAAACPOMGB6WRFFUML77FVYX2IEZPZNL2Q',
       type: '서비스업',
       btnId: 'boiler-btn'
     },
     {
       name: '정형준', 
       company: '주니캅',
-      companyImg: bodyguard,
+      // companyImg: bodyguard,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/9c215249982a68e3da083094d7f5e0a658f01545/bodyguard.jpg?token=GHSAT0AAAAAACPOMGB7HUYHIWDO6R73OKMIZPZNJ5A',
       type: '경비 및 경호',
       btnId: 'juni-btn'
     },
     {
       name: '주상현', 
       company: '현이관세사무소',
-      companyImg: customsBroker,
+      // companyImg: customsBroker,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/9c215249982a68e3da083094d7f5e0a658f01545/customsBroker.jpg?token=GHSAT0AAAAAACPOMGB65KMM6CGXL7YMQJLKZPZNM7Q',
       type: '수출입 통관',
       btnId: 'hyun-btn'
     },
     {
       name: '안다빈', 
       company: '빈이네건강한식탁',
-      companyImg: herbs,
+      // companyImg: herbs,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/9c215249982a68e3da083094d7f5e0a658f01545/herbs.jpg?token=GHSAT0AAAAAACPOMGB7GCMIXY2NAF2V64WKZPZNNKA',
       type: '식음료 외식',
       btnId: 'bin-btn'
     },
     {
       name: '장규석 이재성', 
       company: '석이환경',
-      companyImg: garbageTruck,
+      // companyImg: garbageTruck,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/9c215249982a68e3da083094d7f5e0a658f01545/garbageTruck.jpg?token=GHSAT0AAAAAACPOMGB7NIP64KACB5ZOHSYEZPZNMRQ',
       type: '원료 재생업',
       btnId: 'seok-btn'
     },
     {
       name: '고승일', 
       company: '승일게임아카데미',
-      companyImg: lol,
+      // companyImg: lol,
+      companyImg: 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/lol.jpg?token=GHSAT0AAAAAACPOMGB7NEAWGAMKMFRHZFM2ZPZNMFQ',
       type: '게임 학원',
       btnId: 'game-btn'
     },
