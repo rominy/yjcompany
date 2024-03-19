@@ -22,7 +22,7 @@ const initialState = {
   members: [
     {
       name: '고승일',
-      enName: 'Go Seung-il',
+      enName: 'Ko Seung-il',
       profileImg: seungil,
       puuid: 'yC1UOs2ySEhEe1xRzYO5Ms8dfmvg62covtf_2gVF4FLcV_1vYg-u8Z7XQBzJH6yDk5Ol77ta9wuhZA',
     },
@@ -154,7 +154,7 @@ const memberSlice = createSlice({
   }
 });
 
-export const { getMember, getBusiness } = memberSlice.actions;
+export const { getMember, getBusiness, } = memberSlice.actions;
 
 export const selectMembers = state => state.member.members;
 export const selectBusiness = state => state.member.business;

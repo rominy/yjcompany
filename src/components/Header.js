@@ -9,8 +9,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentPageTitle, selectPageURL } from '../features/pageSlice';
 
 const HeaderContainer = styled.header`
+  /* 설명* Member 컴포넌트에서 모달창 클릭 시 스크롤이 사라지는데 너비 지정을 
+  안 하니 스크롤 만큼 요소가 움직여 너비를 지정함 */
+  width: 100vw;
   height: ${props => props.$hover ? '220px' : '82px'};
-  /* position: ${props => props.$reverse || props.$page ? 'fixed' : 'sticky'}; */
   position: fixed;
   top: 0;
   left: 0;
@@ -35,11 +37,15 @@ const HeaderContainer = styled.header`
         display: flex;
       }
 
+      li:not(.logo) {
+        padding-left: 40px;
+      }
+
       li {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 40px;
+        padding-right: 40px;
         font-weight: bold;
         font-size: 17px;
         color: ${props => props.$reverse ? '#fff' : '#000'};
@@ -114,6 +120,7 @@ function Header(props) {
   const [transition, setTransition] = useState(true);
 
   const pageURL = useSelector(selectPageURL);
+
   // 수정* '/' 일때만 true값을 유지하면 되는데 불필요하게 코드가 계속 실행됨
   useEffect(() => {
     // 설명* sub-menu 클릭 시 transition 없이 동작하기 위해 상태 초기화
@@ -177,7 +184,7 @@ function Header(props) {
       <nav>
         <div className='menu-box'>
           <ul>
-            <li><img id='logo' src={renderPage ? logoWhite : logoBlack} alt='로고' onClick={handleLogoClick} title='홈으로 이동' /></li>
+            <li className='logo'><img id='logo' src={renderPage ? logoWhite : logoBlack} alt='로고' onClick={handleLogoClick} title='홈으로 이동' /></li>
             <li> 
               <ul>
                 <li className='menu'>

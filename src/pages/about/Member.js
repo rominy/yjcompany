@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useSelector } from 'react-redux';
 import { selectMembers } from '../../features/memberSlice';
+import { LuPlusCircle } from "react-icons/lu";
+import Modal from 'react-bootstrap/Modal';
 
 const MemberContainer = styled.article`
 
@@ -29,11 +31,39 @@ const MemberContainer = styled.article`
         }
       }
     }
+
+    #loltier {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .text-box {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #BA55D3;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        span {
+          padding-bottom: 10px;
+          font-size: 50px;
+        }
+
+        p {
+          font-weight: bold;
+        }
+      }
+    } 
   }
 `;
 
 const StyledCol = styled(Col)`
-  margin-bottom: 18px;
+  padding: 0 20px;
+  margin-bottom: 34px;
   height: 380px;
 
   .col-inner {
@@ -65,7 +95,10 @@ const StyledCol = styled(Col)`
 
 function Member(props) {
   const members = useSelector(selectMembers);
-  
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 수정* 이니셜로 카테고리화 시키기
   // const [uniqueInitials, setUniqueInitials] = useState([]);
 
   // useEffect(() => {
@@ -79,6 +112,14 @@ function Member(props) {
   //   const uniqueInitials = Object.keys(initialsMap);
   //   setUniqueInitials(uniqueInitials);
   // }, [])
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  }
+  
+  const closeModal = () => {
+    setIsModalOpen(false);
+  }
 
   return (
     <MemberContainer>
@@ -105,9 +146,31 @@ function Member(props) {
                 </StyledCol>
               )
             })}
+            <StyledCol id='loltier'>
+              <div 
+                className='text-box'
+                onClick={openModal}  
+              >
+                <span><LuPlusCircle /></span>
+                <p>티어 확인하러 가기</p>
+              </div>
+            </StyledCol>
           </Row>
         </Container>
       </div>
+      <Modal
+        size="lg"
+        show={isModalOpen}
+        onHide={closeModal}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Large Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
     </MemberContainer>
   );
 }
