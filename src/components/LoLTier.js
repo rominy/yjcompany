@@ -185,6 +185,7 @@ function LoLTier(props) {
           const response = await axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
             withCredentials: true,
             headers: {
+              accept: 'application/json',
               'Cache-Control': 'no-cache' // 캐시 사용하지 않음
             } 
           });
