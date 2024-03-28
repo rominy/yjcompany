@@ -173,7 +173,7 @@ function LoLTier(props) {
     const getLoLApi = async () => {
       try {
         // 설명* Promise.all() 메서드를 사용하여 비동기 작업을 기다림
-        const response = await Promise.all(members.map(member => axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)));
+        const response = await Promise.all(members.map(member => axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { headers: { 'cors-proxy-url': 'https://kr.api.riotgames.com/'}})));
 
         const newData = response.map((res, index) => { 
           const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
