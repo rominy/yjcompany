@@ -1,6 +1,5 @@
 [[redirects]]
-from = '/lol/*'
+from = '/proxy/*'
 to = 'https://kr.api.riotgames.com/:splat'
 status = 200
 force = true
-headers = {X-From = "Netlify"}
