@@ -176,7 +176,7 @@ function LoLTier(props) {
         // 설명* Promise.all() 메서드를 사용하여 비동기 작업을 기다림
         const response = await Promise.all(members.map(member => { 
           const summonerId = proxy ? member.summonerId : member.devSummonerId;
-          return axios.get(`${proxy}/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)
+          return axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)
         }));
 
         console.log(response);
