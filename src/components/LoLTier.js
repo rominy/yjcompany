@@ -171,52 +171,35 @@ function LoLTier(props) {
 
   useEffect(() => {
     const getLoLApi = async () => {
-      const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
       try {
         // 설명* Promise.all() 메서드를 사용하여 비동기 작업을 기다림
-        // const response = await members.map(member => axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
-        //   withCredentials: true,
-        //   headers: {
-        //     'Cache-Control': 'no-cache' // 캐시 사용하지 않음
-        //   } 
-        // }));
+        const response = await Promise.all(members.map(member => axios.get(`/proxy/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)));
 
-        const responses = await Promise.all(members.map(async member => {
-          const response = await axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
-            withCredentials: true,
-            headers: {
-              accept: 'application/json',
-              'Cache-Control': 'no-cache' // 캐시 사용하지 않음
-            } 
-          });
-          return response.data; // 응답의 데이터만 반환
-        }));
-      
-        console.log(responses); // 모든 응답을 담은 배열 출력
+        console.log(response);
 
-        // const newData = response.map((res, index) => { 
-        //   const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
-        //   return {
-        //     tier: filterTire[0] ? filterTire[0].tier : 'Unranked', 
-        //     rank: filterTire[0] ? filterTire[0].rank : 'Unranked',
-        //     lolId: members[index].lolId,
-        //     name: members[index].name,
-        //     img: members[index].profileImg,
-        //   };
-        // });
+        const newData = response.map((res, index) => { 
+          const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
+          return {
+            tier: filterTire[0] ? filterTire[0].tier : 'Unranked', 
+            rank: filterTire[0] ? filterTire[0].rank : 'Unranked',
+            lolId: members[index].lolId,
+            name: members[index].name,
+            img: members[index].profileImg,
+          };
+        });
         
-        // const compareMembers = (a, b) => {
-        //   const tierComparison = tierOrder[a.tier] - tierOrder[b.tier];
-        //   if (tierComparison !== 0) {
-        //     return tierComparison;
-        //   } else {
-        //     return tierRank[a.rank] - tierRank[b.rank];
-        //   }
-        // };
+        const compareMembers = (a, b) => {
+          const tierComparison = tierOrder[a.tier] - tierOrder[b.tier];
+          if (tierComparison !== 0) {
+            return tierComparison;
+          } else {
+            return tierRank[a.rank] - tierRank[b.rank];
+          }
+        };
 
-        // newData.sort(compareMembers)
+        newData.sort(compareMembers)
 
-        // setLolMembers(newData);
+        setLolMembers(newData);
       } catch (err) {
         console.error(err);
       }

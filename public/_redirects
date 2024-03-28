@@ -1,1 +1,3 @@
 /* /index.html 200
+
+/proxy/* https://kr.api.riotgames.com/:splat 200
