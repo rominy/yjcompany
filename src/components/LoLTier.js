@@ -171,9 +171,13 @@ function LoLTier(props) {
 
   useEffect(() => {
     const getLoLApi = async () => {
+      const proxy = window.location.hostname === 'localhost' ? '' : '/proxy';
       try {
         // 설명* Promise.all() 메서드를 사용하여 비동기 작업을 기다림
-        const response = await Promise.all(members.map(member => axios.get(`/proxy/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)));
+        const response = await Promise.all(members.map(member => { 
+          const summonerId = proxy ? member.summonerId : member.devSummonerId;
+          return axios.get(`${proxy}/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)
+        }));
 
         console.log(response);
 
@@ -182,6 +186,7 @@ function LoLTier(props) {
           return {
             tier: filterTire[0] ? filterTire[0].tier : 'Unranked', 
             rank: filterTire[0] ? filterTire[0].rank : 'Unranked',
+            point: filterTire[0] ? filterTire[0].leaguePoints : 'Unranked',
             lolId: members[index].lolId,
             name: members[index].name,
             img: members[index].profileImg,
@@ -190,10 +195,13 @@ function LoLTier(props) {
         
         const compareMembers = (a, b) => {
           const tierComparison = tierOrder[a.tier] - tierOrder[b.tier];
+          const tierRankComparison = tierRank[a.rank] - tierRank[b.rank];
           if (tierComparison !== 0) {
             return tierComparison;
+          } else if (tierRankComparison !== 0) {
+            return tierRankComparison;
           } else {
-            return tierRank[a.rank] - tierRank[b.rank];
+            return tierRank[a.point] - tierRank[b.point];
           }
         };
 

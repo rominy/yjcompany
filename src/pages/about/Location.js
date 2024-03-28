@@ -21,6 +21,7 @@ const LocationContainer = styled.article`
     }
 
     .info-box {
+      width: 100%;
       display: flex;
       justify-content: center;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Birth(props) {
+function Birthday(props) {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Birth(props) {
   );
 }
 
-export default Birth;
+export default Birthday;
