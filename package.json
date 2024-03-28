@@ -10,6 +10,7 @@
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "framer-motion": "^11.0.8",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
@@ -22,7 +23,6 @@
     "styled-reset": "^4.5.2",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "https://kr.api.riotgames.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
