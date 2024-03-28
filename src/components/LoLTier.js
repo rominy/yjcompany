@@ -194,29 +194,29 @@ function LoLTier(props) {
       
         console.log(responses); // 모든 응답을 담은 배열 출력
 
-        const newData = response.map((res, index) => { 
-          const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
-          return {
-            tier: filterTire[0] ? filterTire[0].tier : 'Unranked', 
-            rank: filterTire[0] ? filterTire[0].rank : 'Unranked',
-            lolId: members[index].lolId,
-            name: members[index].name,
-            img: members[index].profileImg,
-          };
-        });
+        // const newData = response.map((res, index) => { 
+        //   const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
+        //   return {
+        //     tier: filterTire[0] ? filterTire[0].tier : 'Unranked', 
+        //     rank: filterTire[0] ? filterTire[0].rank : 'Unranked',
+        //     lolId: members[index].lolId,
+        //     name: members[index].name,
+        //     img: members[index].profileImg,
+        //   };
+        // });
         
-        const compareMembers = (a, b) => {
-          const tierComparison = tierOrder[a.tier] - tierOrder[b.tier];
-          if (tierComparison !== 0) {
-            return tierComparison;
-          } else {
-            return tierRank[a.rank] - tierRank[b.rank];
-          }
-        };
+        // const compareMembers = (a, b) => {
+        //   const tierComparison = tierOrder[a.tier] - tierOrder[b.tier];
+        //   if (tierComparison !== 0) {
+        //     return tierComparison;
+        //   } else {
+        //     return tierRank[a.rank] - tierRank[b.rank];
+        //   }
+        // };
 
-        newData.sort(compareMembers)
+        // newData.sort(compareMembers)
 
-        setLolMembers(newData);
+        // setLolMembers(newData);
       } catch (err) {
         console.error(err);
       }
