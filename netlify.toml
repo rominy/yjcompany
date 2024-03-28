@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/proxy/*"
-  to = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/:splat"
+  to = "https://kr.api.riotgames.com/:splat"
   status = 200
   force = true
 
