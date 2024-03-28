@@ -174,14 +174,24 @@ function LoLTier(props) {
       const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
       try {
         // 설명* Promise.all() 메서드를 사용하여 비동기 작업을 기다림
-        const response = await members.map(member => axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
-          withCredentials: true,
-          headers: {
-            'Cache-Control': 'no-cache' // 캐시 사용하지 않음
-          } 
-        }));
+        // const response = await members.map(member => axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
+        //   withCredentials: true,
+        //   headers: {
+        //     'Cache-Control': 'no-cache' // 캐시 사용하지 않음
+        //   } 
+        // }));
 
-        console.log(response);
+        const responses = await Promise.all(members.map(async member => {
+          const response = await axios.get(`${PROXY}/lol/league/v4/entries/by-summoner/${member.summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`, { 
+            withCredentials: true,
+            headers: {
+              'Cache-Control': 'no-cache' // 캐시 사용하지 않음
+            } 
+          });
+          return response.data; // 응답의 데이터만 반환
+        }));
+      
+        console.log(responses); // 모든 응답을 담은 배열 출력
 
         const newData = response.map((res, index) => { 
           const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
