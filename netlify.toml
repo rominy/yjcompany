@@ -1,5 +1,10 @@
 [[redirects]]
   from = "/proxy/*"
-  to = "https://yjcompany.netlify.app/:splat"
+  to = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/:splat"
   status = 200
   force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    access-control-allow-origin = "*"
