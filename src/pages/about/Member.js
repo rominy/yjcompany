@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectMembers } from '../../features/memberSlice';
 import { LuPlusCircle } from "react-icons/lu";
 import Modal from 'react-bootstrap/Modal';
+import LoLTier from '../../components/LoLTier';
 
 const MemberContainer = styled.article`
 
@@ -166,10 +167,12 @@ function Member(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            Large Modal
+            리그오브레전드
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>...</Modal.Body>
+        <Modal.Body>
+          <LoLTier />
+        </Modal.Body>
       </Modal>
     </MemberContainer>
   );

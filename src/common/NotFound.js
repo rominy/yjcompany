@@ -1,5 +1,4 @@
 import React from 'react';
-import notFound from '../assets/images/notfoundimg.png';
 import styled from 'styled-components';
 
 const StyledNotFound = styled.div`
@@ -25,7 +24,7 @@ function NotFound(props) {
   return (
     <StyledNotFound>
       <div className='inner'>
-        <img src={notFound} alt='error' />
+        <img src='https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/common/notfoundimg.png' alt='error' />
         <p><span>Error code:</span> 404 Not Found</p>
         <p>요청하신 페이지는 없는 페이지입니다.</p>
       </div>

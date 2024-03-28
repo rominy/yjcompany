@@ -184,7 +184,19 @@ function Header(props) {
       <nav>
         <div className='menu-box'>
           <ul>
-            <li className='logo'><img id='logo' src={renderPage ? logoWhite : logoBlack} alt='로고' onClick={handleLogoClick} title='홈으로 이동' /></li>
+            <li className='logo'>
+              <img 
+                id='logo' 
+                src={
+                  renderPage 
+                    ? 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/logo_white.png' 
+                    : 'https://raw.githubusercontent.com/rominy/yjcompany-data_center/main/logo_black.png'
+                  } 
+                alt='로고' 
+                onClick={handleLogoClick} 
+                title='홈으로 이동' 
+              />
+            </li>
             <li> 
               <ul>
                 <li className='menu'>
