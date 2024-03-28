@@ -1,5 +1,5 @@
 [[redirects]]
-from = '/riot_proxy/*'
+from = '/lol/*'
 to = 'https://kr.api.riotgames.com/:splat'
 status = 200
 force = true
