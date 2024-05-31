@@ -179,8 +179,6 @@ function LoLTier(props) {
           return axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.REACT_APP_RIOTGAMES_KEY}`)
         }));
 
-        console.log(response);
-
         const newData = response.map((res, index) => { 
           const filterTire = res.data.filter(data => data.queueType === 'RANKED_SOLO_5x5');
           return {
